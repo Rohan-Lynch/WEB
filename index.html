@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Packet Tracer Files</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Packet Tracer Showcase</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    button {
+      background: #4fc3f7;
+      color: #000;
+      padding: 15px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      background: #29b6f6;
+      transform: scale(1.1);
+    }
+
+    .files {
+      display: none;
+      margin: 20px auto;
+      max-width: 300px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    .files a {
+      display: block;
+      background: #fff;
+      color: #000;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 8px 0;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .files a:hover {
+      background: #f1f1f1;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
-  <h1>Team Packet Tracer Files</h1>
+  <h1>Packet Tracer Files</h1>
 
   <div class="button-container">
     <button onclick="showFiles('rohan')">Rohan</button>
@@ -16,26 +87,37 @@
     <button onclick="showFiles('rithin')">Rithin</button>
   </div>
 
-  <div id="fileLinks" class="file-links"></div>
+  <div id="rohan" class="files">
+    <a href="rohan1.pkt" download>Download Rohan File 1</a>
+    <a href="rohan2.pkt" download>Download Rohan File 2</a>
+  </div>
+
+  <div id="aaryan" class="files">
+    <a href="aaryan1.pkt" download>Download Aaryan File 1</a>
+    <a href="aaryan2.pkt" download>Download Aaryan File 2</a>
+  </div>
+
+  <div id="sivasankar" class="files">
+    <a href="sivasankar1.pkt" download>Download Sivasankar File 1</a>
+    <a href="sivasankar2.pkt" download>Download Sivasankar File 2</a>
+  </div>
+
+  <div id="siddharth" class="files">
+    <a href="siddharth1.pkt" download>Download Siddharth File 1</a>
+    <a href="siddharth2.pkt" download>Download Siddharth File 2</a>
+  </div>
+
+  <div id="rithin" class="files">
+    <a href="rithin1.pkt" download>Download Rithin File 1</a>
+    <a href="rithin2.pkt" download>Download Rithin File 2</a>
+  </div>
 
   <script>
-    const pktFiles = {
-      rohan: ['pkt/rohan1.pkt', 'pkt/rohan2.pkt'],
-      aaryan: ['pkt/aaryan1.pkt', 'pkt/aaryan2.pkt'],
-      sivasankar: ['pkt/sivasankar1.pkt', 'pkt/sivasankar2.pkt'],
-      siddharth: ['pkt/siddharth1.pkt', 'pkt/siddharth2.pkt'],
-      rithin: ['pkt/rithin1.pkt', 'pkt/rithin2.pkt'],
-    };
-
-    function showFiles(name) {
-      const container = document.getElementById('fileLinks');
-      const files = pktFiles[name];
-      container.innerHTML = `<h2>${name}'s Packet Tracer Files</h2>`;
-      files.forEach((file, index) => {
-        const fileName = file.split('/').pop();
-        const link = `<a href="${file}" download>${fileName}</a><br>`;
-        container.innerHTML += link;
-      });
+    function showFiles(id) {
+      // Hide all first
+      document.querySelectorAll('.files').forEach(el => el.style.display = 'none');
+      // Then show the selected one
+      document.getElementById(id).style.display = 'block';
     }
   </script>
 </body>
