@@ -1,97 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P2P Chat System</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
-    }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    .starfield {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: url('https://grainy-gradients.vercel.app/noise.svg') repeat;
-    }
-  </style>
-</head>
-<body class="bg-black text-white">
-  <canvas id="stars" class="fixed top-0 left-0 w-full h-full z-[-1]"></canvas>
-  <div class="relative z-10">
-    <header class="sticky top-0 w-full bg-black/70 backdrop-blur-md shadow-lg z-50 p-6 flex justify-between items-center">
-      <h1 class="text-3xl text-cyan-400 font-bold glow">P2P Chat System</h1>
-      <nav class="space-x-4">
-        <a href="#team" class="text-white hover:text-cyan-400 transition">Team</a>
-        <a href="assignments.html" class="text-white hover:text-cyan-400 transition">Assignments</a>
-        <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="bg-cyan-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-cyan-300 transition">💬 Chat P2P</a>
-      </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P2P Chat System - Team Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="relative overflow-x-hidden">
+    <!-- Background Stars Canvas -->
+    <canvas id="stars-bg" class="fixed inset-0 z-0"></canvas>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur bg-black/70 shadow-md">
+      <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <h1 class="text-3xl text-cyan-300 font-extrabold tracking-widest">P2P Chat System</h1>
+        <nav class="space-x-4">
+          <a href="#team" class="text-white hover:text-cyan-400 transition">Team</a>
+          <a href="#about" class="text-white hover:text-cyan-400 transition">About</a>
+          <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="bg-cyan-400 text-black px-4 py-2 rounded-full hover:bg-white hover:text-black transition font-bold">Chat P2P</a>
+        </nav>
+      </div>
     </header>
 
-    <main class="text-center py-24 px-4">
-      <h2 class="text-4xl font-bold glow mb-4">Welcome to the Future of Communication</h2>
-      <p class="text-lg mb-6 text-gray-300">Experience seamless and secure peer-to-peer messaging with our decentralized chat platform.</p>
-      <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="inline-block bg-cyan-400 text-black px-6 py-3 text-lg rounded-full font-bold hover:bg-cyan-300 transition shadow-lg">Launch Chat</a>
-    </main>
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-4">
+      <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-pulse">Experience Seamless Peer-to-Peer Networking</h2>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-cyan-200">Welcome to the next-gen P2P chat system powered by direct packet exchange. No central servers. Just fast, efficient communication.</p>
+    </section>
 
-    <section id="team" class="px-8 py-12 text-center bg-black/50">
-      <h3 class="text-3xl text-cyan-400 mb-10 glow">🌟 Team Members</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="members/rohan.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Rohan</a>
-        <a href="members/aaryan.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Aaryan</a>
-        <a href="members/sivasankar.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Sivasankar</a>
-        <a href="members/siddharth.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Siddharth</a>
-        <a href="members/rithin.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Rithin</a>
+    <!-- Team Section -->
+    <section id="team" class="bg-gray-900 py-16 px-4">
+      <h3 class="text-4xl text-center text-cyan-400 font-bold mb-12">Team Members</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <a href="members/rohan.html" class="group bg-black/50 p-6 rounded-xl border border-cyan-600 hover:scale-105 transition duration-300 shadow-lg">
+          <h4 class="text-2xl text-white group-hover:text-cyan-400">Rohan</h4>
+          <p class="text-sm text-cyan-200">Packet Design Architect</p>
+        </a>
+        <a href="members/aaryan.html" class="group bg-black/50 p-6 rounded-xl border border-cyan-600 hover:scale-105 transition duration-300 shadow-lg">
+          <h4 class="text-2xl text-white group-hover:text-cyan-400">Aaryan</h4>
+          <p class="text-sm text-cyan-200">Network Optimizer</p>
+        </a>
+        <a href="members/sivasankar.html" class="group bg-black/50 p-6 rounded-xl border border-cyan-600 hover:scale-105 transition duration-300 shadow-lg">
+          <h4 class="text-2xl text-white group-hover:text-cyan-400">Sivasankar</h4>
+          <p class="text-sm text-cyan-200">Connection Handler</p>
+        </a>
+        <a href="members/siddharth.html" class="group bg-black/50 p-6 rounded-xl border border-cyan-600 hover:scale-105 transition duration-300 shadow-lg">
+          <h4 class="text-2xl text-white group-hover:text-cyan-400">Siddharth</h4>
+          <p class="text-sm text-cyan-200">Topology Developer</p>
+        </a>
+        <a href="members/rithin.html" class="group bg-black/50 p-6 rounded-xl border border-cyan-600 hover:scale-105 transition duration-300 shadow-lg">
+          <h4 class="text-2xl text-white group-hover:text-cyan-400">Rithin</h4>
+          <p class="text-sm text-cyan-200">Protocol Enforcer</p>
+        </a>
       </div>
     </section>
 
-    <footer class="text-center text-gray-400 py-6">
-      <p>&copy; 2025 P2P Chat System. Made with ❤️ by Team P2P.</p>
-    </footer>
-  </div>
+    <!-- About P2P Chat -->
+    <section id="about" class="py-20 px-6 bg-gradient-to-br from-black to-gray-800">
+      <div class="max-w-5xl mx-auto text-center">
+        <h3 class="text-4xl font-bold text-white mb-6">What is P2P Chat?</h3>
+        <p class="text-lg text-cyan-100 leading-relaxed">Peer-to-peer chat systems allow users to communicate directly with each other without relying on a centralized server. This ensures higher security, lower latency, and true user independence. Our implementation uses Cisco Packet Tracer to simulate these interactions at the network level.</p>
+      </div>
+    </section>
 
-  <script>
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    <!-- Chat Bubble Floating -->
+    <div class="chat-bubble" onclick="window.open('https://cn-chat-fnd.vercel.app/', '_blank')">💬 Chat Now</div>
 
-    let stars = Array.from({ length: 120 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: (Math.random() - 0.5) * 0.3,
-    }));
+    <!-- Floating Emojis -->
+    <div class="floating-emoji" style="left: 10%;">💡</div>
+    <div class="floating-emoji" style="left: 30%; animation-delay: 3s;">🌐</div>
+    <div class="floating-emoji" style="left: 50%; animation-delay: 1s;">🚀</div>
+    <div class="floating-emoji" style="left: 70%; animation-delay: 4s;">📡</div>
+    <div class="floating-emoji" style="left: 90%; animation-delay: 2s;">✨</div>
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'white';
-        ctx.fill();
-        star.x += star.dx;
-        star.y += star.dy;
-        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
+    <!-- Scripts -->
+    <script>
+      const canvas = document.getElementById('stars-bg');
+      const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-  </script>
-</body>
+
+      let stars = Array(200).fill().map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        d: Math.random() * 1
+      }));
+
+      function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        stars.forEach(s => {
+          ctx.moveTo(s.x, s.y);
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+        });
+        ctx.fill();
+        updateStars();
+      }
+
+      function updateStars() {
+        stars.forEach(s => {
+          s.y += s.d;
+          if (s.y > canvas.height) {
+            s.y = 0;
+            s.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      function animateStars() {
+        drawStars();
+        requestAnimationFrame(animateStars);
+      }
+
+      animateStars();
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+  </body>
 </html>
