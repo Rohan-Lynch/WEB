@@ -4,160 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>P2P Chat System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #1e1e2f, #0f0f1a);
       color: #fff;
-      text-align: center;
-      padding: 30px 20px;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f0f1a;
+      border-bottom: 1px solid #333;
+    }
+
+    header nav a {
+      color: #ccc;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      color: #fff;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+      font-size: 3em;
+      margin-top: 60px;
+      color: #fff;
+    }
+
+    p.description {
+      text-align: center;
+      max-width: 700px;
+      margin: 10px auto 50px;
+      font-size: 1.2em;
+      color: #ccc;
     }
 
     .main-button {
-      margin: 30px 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
     }
 
-    .main-button button {
-      background: #00c6ff;
-      background: linear-gradient(to right, #0072ff, #00c6ff);
+    .main-button a {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      padding: 20px 50px;
+      border-radius: 12px;
+      font-size: 1.4em;
+      font-weight: bold;
       color: #fff;
-      font-size: 1.5rem;
-      padding: 20px 40px;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 198, 255, 0.3);
-      transition: all 0.3s ease;
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .main-button button:hover {
+    .main-button a:hover {
       transform: scale(1.05);
-      background: linear-gradient(to right, #00c6ff, #0072ff);
     }
 
     h2 {
-      margin-top: 60px;
-      font-size: 2rem;
-      color: #ffffffcc;
-      border-bottom: 2px solid #ffffff44;
-      display: inline-block;
-      padding-bottom: 10px;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 30px 0;
-    }
-
-    .button-container button {
-      background: #f48fb1;
-      padding: 15px 25px;
-      font-size: 1rem;
-      color: #000;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .button-container button:hover {
-      background: #f06292;
-      transform: translateY(-3px);
-    }
-
-    .files {
-      display: none;
+      text-align: center;
+      font-size: 2em;
       margin-top: 20px;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: slideUp 0.5s ease-out;
+      color: #eee;
     }
 
-    .files a {
+    .team-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+
+    .team-member {
+      background: #1b1b2d;
+      padding: 20px;
+      border-radius: 12px;
+      width: 160px;
+      text-align: center;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .team-member:hover {
+      transform: scale(1.05);
+      background: #252541;
+    }
+
+    .team-member a {
       display: block;
-      background: #ffffffdd;
-      color: #000;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 8px;
+      margin-top: 10px;
+      color: #7dd3fc;
       text-decoration: none;
-      transition: background 0.3s ease;
+      font-size: 0.9em;
     }
 
-    .files a:hover {
-      background: #f1f1f1;
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.8em;
+      color: #666;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
 
-    @keyframes slideUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+      .main-button a {
+        padding: 15px 30px;
+        font-size: 1.2em;
+      }
+
+      .team-member {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <div style="font-weight: 700; font-size: 1.2em;">P2P Chat</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#team">Team</a>
+      <a href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch App</a>
+    </nav>
+  </header>
+
   <h1>P2P (Peer to Peer) Chat System</h1>
+  <p class="description">
+    A decentralized chat application utilizing Huffman coding for efficient data compression,
+    ensuring fast and secure peer-to-peer communication without relying on central servers.
+  </p>
 
   <div class="main-button">
-    <button onclick="window.location.href='https://cn-chat-fnd.vercel.app/'">Chat P2P</button>
+    <a href="https://cn-chat-fnd.vercel.app/" target="_blank">🚀 Chat P2P</a>
   </div>
 
-  <h2>Team Members</h2>
-
-  <div class="button-container">
-    <button onclick="showFiles('rohan')">Rohan</button>
-    <button onclick="showFiles('aaryan')">Aaryan</button>
-    <button onclick="showFiles('sivasankar')">Sivasankar</button>
-    <button onclick="showFiles('siddharth')">Siddharth</button>
-    <button onclick="showFiles('rithin')">Rithin</button>
+  <h2 id="team">Team Members</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <div>Rohan</div>
+      <a href="files/rohan1.pkt" download>Download 1</a>
+      <a href="files/rohan2.pkt" download>Download 2</a>
+    </div>
+    <div class="team-member">
+      <div>Aaryan</div>
+      <a href="files/aaryan1.pkt" download>Download 1</a>
+      <a href="files/aaryan2.pkt" download>Download 2</a>
+    </div>
+    <div class="team-member">
+      <div>Sivasankar</div>
+      <a href="files/siva1.pkt" download>Download 1</a>
+      <a href="files/siva2.pkt" download>Download 2</a>
+    </div>
+    <div class="team-member">
+      <div>Siddharth</div>
+      <a href="files/sid1.pkt" download>Download 1</a>
+      <a href="files/sid2.pkt" download>Download 2</a>
+    </div>
+    <div class="team-member">
+      <div>Rithin</div>
+      <a href="files/rithin1.pkt" download>Download 1</a>
+      <a href="files/rithin2.pkt" download>Download 2</a>
+    </div>
   </div>
 
-  <div id="rohan" class="files">
-    <a href="rohan1.pkt" download>Download Rohan File 1</a>
-    <a href="rohan2.pkt" download>Download Rohan File 2</a>
-  </div>
+  <footer>
+    &copy; 2025 P2P Chat Project. All rights reserved.
+  </footer>
 
-  <div id="aaryan" class="files">
-    <a href="aaryan1.pkt" download>Download Aaryan File 1</a>
-    <a href="aaryan2.pkt" download>Download Aaryan File 2</a>
-  </div>
-
-  <div id="sivasankar" class="files">
-    <a href="sivasankar1.pkt" download>Download Sivasankar File 1</a>
-    <a href="sivasankar2.pkt" download>Download Sivasankar File 2</a>
-  </div>
-
-  <div id="siddharth" class="files">
-    <a href="siddharth1.pkt" download>Download Siddharth File 1</a>
-    <a href="siddharth2.pkt" download>Download Siddharth File 2</a>
-  </div>
-
-  <div id="rithin" class="files">
-    <a href="rithin1.pkt" download>Download Rithin File 1</a>
-    <a href="rithin2.pkt" download>Download Rithin File 2</a>
-  </div>
-
-  <script>
-    function showFiles(id) {
-      document.querySelectorAll('.files').forEach(el => el.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-  </script>
 </body>
 </html>
