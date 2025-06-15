@@ -1,26 +1,121 @@
-input[type="file"] {
-  background: white;
-  padding: 0.5rem;
-  border-radius: 8px;
-  margin-right: 1rem;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-button {
-  background: #f87171;
-  color: white;
-  padding: 0.5rem 1rem;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00d8ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00d8ff;
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00d8ff;
+}
+
+.description {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.main-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #00d8ff;
+  color: #111;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
+  text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
-  background: #fb5a5a;
+.main-btn:hover {
+  background-color: #00b8d4;
+  transform: scale(1.05);
 }
 
-.file-list {
-  list-style: none;
-  padding: 0;
-  color: white;
+/* Team Section */
+.team-section {
+  padding: 3rem 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 180px;
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.card a {
+  text-decoration: none;
+  color: #00d8ff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.12);
 }
