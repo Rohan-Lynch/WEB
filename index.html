@@ -2,40 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rohan - Assignments</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P2P Chat System</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="logo"><a href="../index.html" style="text-decoration:none;color:white">← Back</a></div>
+    <div class="navbar">
+      <div class="logo">P2P Chat</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch App</a></li>
+      </ul>
+    </div>
   </header>
 
   <main class="hero">
-    <h1>Rohan - Assignment Upload</h1>
-    <form id="uploadForm">
-      <input type="file" id="fileInput" accept=".pkt" />
-      <button type="button" onclick="uploadFile()">Upload</button>
-    </form>
-
-    <section class="team" style="margin-top: 3rem;">
-      <h2>Assignments</h2>
-      <ul id="fileList" class="file-list"></ul>
-    </section>
+    <h1>P2P (Peer to Peer) Chat System</h1>
+    <p class="description">
+      A decentralized chat application utilizing Huffman coding for efficient data compression, ensuring fast and secure peer-to-peer communication without relying on central servers.
+    </p>
+    <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="main-btn">🚀 Chat P2P</a>
   </main>
 
-  <script>
-    function uploadFile() {
-      const input = document.getElementById('fileInput');
-      const list = document.getElementById('fileList');
-      if (input.files.length > 0) {
-        const fileName = input.files[0].name;
-        const listItem = document.createElement('li');
-        listItem.textContent = fileName;
-        list.appendChild(listItem);
-        input.value = '';
-      }
-    }
-  </script>
+  <section class="team-section" id="team">
+    <h2>Team Members</h2>
+    <div class="card-container">
+      <div class="card"><a href="pages/rohan.html">Rohan</a></div>
+      <div class="card"><a href="pages/aaryan.html">Aaryan</a></div>
+      <div class="card"><a href="pages/sivasankar.html">Sivasankar</a></div>
+      <div class="card"><a href="pages/siddharth.html">Siddharth</a></div>
+      <div class="card"><a href="pages/rithin.html">Rithin</a></div>
+    </div>
+  </section>
 </body>
 </html>
