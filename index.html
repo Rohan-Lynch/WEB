@@ -7,44 +7,90 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="stars-bg"></canvas>
+
   <header>
-    <nav class="navbar">
-      <div class="logo">P2P Chat System</div>
-      <div class="dropdown">
-        <button class="menu-button">☰</button>
-        <div class="dropdown-content">
-          <a href="#team">Team</a>
-          <a href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch Chat</a>
-          <a href="https://github.com/Rohan-Lynch/packet-tracer-site" target="_blank">GitHub</a>
-        </div>
-      </div>
-    </nav>
+    <div class="nav-container">
+      <div class="logo">⚡ P2P Chat System</div>
+      <ul class="nav-links">
+        <li><a href="#team">Team</a></li>
+        <li><a href="https://cn-chat-fnd.vercel.app/" target="_blank">Chat</a></li>
+        <li><a href="https://github.com/Rohan-Lynch/packet-tracer-site" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
   </header>
 
   <main class="hero">
-    <h1 class="typewriter">Welcome to the Future of Communication</h1>
-    <p class="description">Explore our decentralized P2P chat system and learn through our packet tracer assignments.</p>
-    <a class="main-btn" href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch P2P Chat</a>
+    <h1 class="neon-glow">Revolutionize Communication</h1>
+    <p class="subtext">A blazing fast decentralized P2P chat platform crafted with excellence.</p>
+    <a class="cta-button" href="https://cn-chat-fnd.vercel.app/" target="_blank">🚀 Launch Chat</a>
   </main>
 
   <section class="team-section" id="team">
-    <h2>Team Members</h2>
-    <div class="card-container">
-      <a href="members/rohan.html" class="card"><h3>Rohan</h3></a>
-      <a href="members/aaryan.html" class="card"><h3>Aaryan</h3></a>
-      <a href="members/sivasankar.html" class="card"><h3>Sivasankar</h3></a>
-      <a href="members/siddharth.html" class="card"><h3>Siddharth</h3></a>
-      <a href="members/rithin.html" class="card"><h3>Rithin</h3></a>
+    <h2>🌟 Meet Our Team</h2>
+    <div class="team-grid">
+      <a href="members/rohan.html" class="member-card"><span>Rohan</span></a>
+      <a href="members/aaryan.html" class="member-card"><span>Aaryan</span></a>
+      <a href="members/sivasankar.html" class="member-card"><span>Sivasankar</span></a>
+      <a href="members/siddharth.html" class="member-card"><span>Siddharth</span></a>
+      <a href="members/rithin.html" class="member-card"><span>Rithin</span></a>
     </div>
   </section>
 
-  <div class="floating-emojis">💬 ✨ 🌐</div>
-  <div class="chat-bubble">👋 Try our new P2P Chat App!</div>
+  <footer>
+    <p>⚙️ Built with ❤️ by Team P2P | © 2025</p>
+  </footer>
 
   <script>
-    document.querySelector('.menu-button').addEventListener('click', () => {
-      document.querySelector('.dropdown-content').classList.toggle('show');
+    // Starfield background
+    const canvas = document.getElementById('stars-bg');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function initStars(count) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          alpha: Math.random(),
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      stars.forEach(star => {
+        ctx.globalAlpha = star.alpha;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initStars(200);
     });
+
+    resizeCanvas();
+    initStars(200);
+    animateStars();
   </script>
 </body>
 </html>
