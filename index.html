@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Packet Tracer Files</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Team Packet Tracer Files</h1>
+
+  <div class="button-container">
+    <button onclick="showFiles('rohan')">Rohan</button>
+    <button onclick="showFiles('aaryan')">Aaryan</button>
+    <button onclick="showFiles('sivasankar')">Sivasankar</button>
+    <button onclick="showFiles('siddharth')">Siddharth</button>
+    <button onclick="showFiles('rithin')">Rithin</button>
+  </div>
+
+  <div id="fileLinks" class="file-links"></div>
+
+  <script>
+    const pktFiles = {
+      rohan: ['pkt/rohan1.pkt', 'pkt/rohan2.pkt'],
+      aaryan: ['pkt/aaryan1.pkt', 'pkt/aaryan2.pkt'],
+      sivasankar: ['pkt/sivasankar1.pkt', 'pkt/sivasankar2.pkt'],
+      siddharth: ['pkt/siddharth1.pkt', 'pkt/siddharth2.pkt'],
+      rithin: ['pkt/rithin1.pkt', 'pkt/rithin2.pkt'],
+    };
+
+    function showFiles(name) {
+      const container = document.getElementById('fileLinks');
+      const files = pktFiles[name];
+      container.innerHTML = `<h2>${name}'s Packet Tracer Files</h2>`;
+      files.forEach((file, index) => {
+        const fileName = file.split('/').pop();
+        const link = `<a href="${file}" download>${fileName}</a><br>`;
+        container.innerHTML += link;
+      });
+    }
+  </script>
+</body>
+</html>
