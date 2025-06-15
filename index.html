@@ -1,96 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P2P Chat System</title>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    .starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://grainy-gradients.vercel.app/noise.svg') repeat;
+    }
+  </style>
 </head>
-<body>
-  <canvas id="stars-bg"></canvas>
+<body class="bg-black text-white">
+  <canvas id="stars" class="fixed top-0 left-0 w-full h-full z-[-1]"></canvas>
+  <div class="relative z-10">
+    <header class="sticky top-0 w-full bg-black/70 backdrop-blur-md shadow-lg z-50 p-6 flex justify-between items-center">
+      <h1 class="text-3xl text-cyan-400 font-bold glow">P2P Chat System</h1>
+      <nav class="space-x-4">
+        <a href="#team" class="text-white hover:text-cyan-400 transition">Team</a>
+        <a href="assignments.html" class="text-white hover:text-cyan-400 transition">Assignments</a>
+        <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="bg-cyan-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-cyan-300 transition">💬 Chat P2P</a>
+      </nav>
+    </header>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo">⚡ P2P Chat System</div>
-      <ul class="nav-links">
-        <li><a href="#team">Team</a></li>
-        <li><a href="https://cn-chat-fnd.vercel.app/" target="_blank">Chat</a></li>
-        <li><a href="https://github.com/Rohan-Lynch/packet-tracer-site" target="_blank">GitHub</a></li>
-      </ul>
-    </div>
-  </header>
+    <main class="text-center py-24 px-4">
+      <h2 class="text-4xl font-bold glow mb-4">Welcome to the Future of Communication</h2>
+      <p class="text-lg mb-6 text-gray-300">Experience seamless and secure peer-to-peer messaging with our decentralized chat platform.</p>
+      <a href="https://cn-chat-fnd.vercel.app/" target="_blank" class="inline-block bg-cyan-400 text-black px-6 py-3 text-lg rounded-full font-bold hover:bg-cyan-300 transition shadow-lg">Launch Chat</a>
+    </main>
 
-  <main class="hero">
-    <h1 class="neon-glow">Revolutionize Communication</h1>
-    <p class="subtext">A blazing fast decentralized P2P chat platform crafted with excellence.</p>
-    <a class="cta-button" href="https://cn-chat-fnd.vercel.app/" target="_blank">🚀 Launch Chat</a>
-  </main>
+    <section id="team" class="px-8 py-12 text-center bg-black/50">
+      <h3 class="text-3xl text-cyan-400 mb-10 glow">🌟 Team Members</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="members/rohan.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Rohan</a>
+        <a href="members/aaryan.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Aaryan</a>
+        <a href="members/sivasankar.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Sivasankar</a>
+        <a href="members/siddharth.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Siddharth</a>
+        <a href="members/rithin.html" class="bg-white/5 hover:bg-white/10 p-6 rounded-2xl shadow-md transition transform hover:scale-105">Rithin</a>
+      </div>
+    </section>
 
-  <section class="team-section" id="team">
-    <h2>🌟 Meet Our Team</h2>
-    <div class="team-grid">
-      <a href="members/rohan.html" class="member-card"><span>Rohan</span></a>
-      <a href="members/aaryan.html" class="member-card"><span>Aaryan</span></a>
-      <a href="members/sivasankar.html" class="member-card"><span>Sivasankar</span></a>
-      <a href="members/siddharth.html" class="member-card"><span>Siddharth</span></a>
-      <a href="members/rithin.html" class="member-card"><span>Rithin</span></a>
-    </div>
-  </section>
-
-  <footer>
-    <p>⚙️ Built with ❤️ by Team P2P | © 2025</p>
-  </footer>
+    <footer class="text-center text-gray-400 py-6">
+      <p>&copy; 2025 P2P Chat System. Made with ❤️ by Team P2P.</p>
+    </footer>
+  </div>
 
   <script>
-    // Starfield background
-    const canvas = document.getElementById('stars-bg');
+    const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
-    let stars = [];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+    let stars = Array.from({ length: 120 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.5,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3,
+    }));
 
-    function initStars(count) {
-      stars = [];
-      for (let i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5,
-          alpha: Math.random(),
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
-
-    function animateStars() {
+    function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white";
       stars.forEach(star => {
-        ctx.globalAlpha = star.alpha;
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
         ctx.fill();
         star.x += star.dx;
         star.y += star.dy;
-
         if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
         if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
       });
-      requestAnimationFrame(animateStars);
+      requestAnimationFrame(animate);
     }
+    animate();
 
     window.addEventListener('resize', () => {
-      resizeCanvas();
-      initStars(200);
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     });
-
-    resizeCanvas();
-    initStars(200);
-    animateStars();
   </script>
 </body>
 </html>
