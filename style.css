@@ -1,140 +1,109 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: #000;
+/* style.css */
+
+/* General Styling */
+body {
   overflow-x: hidden;
-  color: #fff;
+  position: relative;
 }
 
-/* Star Canvas Background */
-#stars-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: black;
-}
-
-/* Header */
-header {
-  padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #00ffe7;
-}
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-.nav-links a {
-  color: #ddd;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-.nav-links a:hover {
-  color: #00ffe7;
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 8rem 2rem 4rem 2rem;
-}
-.neon-glow {
-  font-size: 3.5rem;
-  color: #fff;
-  text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7, 0 0 30px #00ffe7;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-  }
-  to {
-    text-shadow: 0 0 20px #00ffe7, 0 0 40px #00ffe7;
-  }
-}
-.subtext {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  opacity: 0.8;
-}
-.cta-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 1rem 2.5rem;
-  background: #00ffe7;
-  color: #000;
-  font-weight: bold;
-  border-radius: 40px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  box-shadow: 0 0 20px #00ffe7;
-  transition: background 0.3s, transform 0.3s;
-}
-.cta-button:hover {
-  background: #00b3a1;
-  transform: scale(1.05);
-}
-
-/* Team Section */
-.team-section {
-  padding: 5rem 2rem;
-  text-align: center;
-}
-.team-section h2 {
+/* Floating Emojis */
+.floating-emoji {
+  position: absolute;
+  bottom: -60px;
   font-size: 2rem;
-  margin-bottom: 3rem;
-  color: #00ffe7;
-}
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-.member-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem 3rem;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 255, 231, 0.3);
-  text-decoration: none;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: 600;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.member-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  background: rgba(0, 255, 231, 0.1);
+  animation: floatUp 10s infinite linear;
+  z-index: 20;
+  pointer-events: none;
 }
 
-/* Footer */
-footer {
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.7;
-  background: rgba(0, 0, 0, 0.4);
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.8) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Chat Bubble Button */
+.chat-bubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(145deg, #00ffff, #008b8b);
+  color: black;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+/* Glow on Cards */
+.group:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Smooth Transitions */
+a, .chat-bubble, .floating-emoji, .group {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 6px;
+}
+
+/* Responsive Font Sizes */
+h1, h2, h3, h4 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Card Hover Enhancements */
+.group:hover h4 {
+  transform: scale(1.05);
+  color: #00ffff;
+}
+
+/* Fade-in Entry for Team Cards */
+.group {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.group:nth-child(1) { animation-delay: 0.1s; }
+.group:nth-child(2) { animation-delay: 0.2s; }
+.group:nth-child(3) { animation-delay: 0.3s; }
+.group:nth-child(4) { animation-delay: 0.4s; }
+.group:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
