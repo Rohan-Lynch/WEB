@@ -12,12 +12,18 @@
         background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
         color: white;
       }
+
+      canvas#stars-bg, .floating-emoji {
+        pointer-events: none;
+      }
+
       .floating-emoji {
         position: fixed;
         bottom: -10px;
         font-size: 1.5rem;
         animation: floatUp 10s infinite linear;
       }
+
       @keyframes floatUp {
         0% {
           transform: translateY(0);
@@ -28,6 +34,7 @@
       }
     </style>
   </head>
+
   <body class="relative overflow-x-hidden">
     <!-- Background Stars Canvas -->
     <canvas id="stars-bg" class="fixed inset-0 z-0"></canvas>
@@ -53,18 +60,17 @@
     <section id="assignments" class="bg-gray-900 py-16 px-4">
       <h3 class="text-4xl text-center text-cyan-400 font-bold mb-12">Assignments</h3>
       <ul class="max-w-2xl mx-auto space-y-4 text-center file-list">
-  <li>
-    <a href="../pkt/rohan_assignment1.pkt" download class="text-cyan-300 hover:text-white transition text-xl">
-      Assignment 1
-    </a>
-  </li>
-  <li>
-    <a href="../pkt/rohan_assignment2.pkt" download class="text-cyan-300 hover:text-white transition text-xl">
-      Assignment 2
-    </a>
-  </li>
-</ul>
-
+        <li>
+          <a href="../pkt/rohan_assignment1.pkt" download class="text-cyan-300 hover:text-white transition text-xl">
+            Assignment 1
+          </a>
+        </li>
+        <li>
+          <a href="../pkt/rohan_assignment2.pkt" download class="text-cyan-300 hover:text-white transition text-xl">
+            Assignment 2
+          </a>
+        </li>
+      </ul>
     </section>
 
     <!-- Floating Emojis -->
