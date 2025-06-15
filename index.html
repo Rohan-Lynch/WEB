@@ -2,46 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>P2P Chat System</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">P2P Chat</div>
+      <div class="logo">P2P Chat System</div>
       <div class="nav-links">
-        <a href="#team">Team</a>
-        <a href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch Chat</a>
-        <button class="dark-toggle">🌓</button>
+        <div class="dropdown">
+          <button class="dark-toggle">☰ Menu</button>
+          <div class="dropdown-content">
+            <a href="#team">Team</a>
+            <a href="https://cn-chat-fnd.vercel.app/" target="_blank">Chat App</a>
+            <a href="https://github.com/Rohan-Lynch/packet-tracer-site" target="_blank">GitHub</a>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
 
-  <main class="hero">
-    <h1 class="animate-slide">P2P (Peer-to-Peer) Chat System</h1>
-    <p class="description">A secure, decentralized chat system powered by peer-to-peer networking.</p>
-    <a href="https://cn-chat-fnd.vercel.app/" class="main-btn" target="_blank">🚀 Start Chatting</a>
+  <main class="hero typewriter">
+    <h1>Welcome to the P2P Chat System</h1>
+    <p class="description">A decentralized peer-to-peer communication platform demonstrating secure, direct messaging without centralized servers.</p>
+    <a class="main-btn" href="https://cn-chat-fnd.vercel.app/" target="_blank">Launch P2P Chat</a>
   </main>
 
-  <!-- Floating emojis -->
-  <div class="floating-emojis">
-    💬 🔐 🌐 📡 ✨
-  </div>
-
-  <!-- Chat bubble -->
-  <div class="chat-bubble">Need help? Start chatting!</div>
-
   <section class="team-section" id="team">
-    <h2>💼 Team Members</h2>
+    <h2>Team Members</h2>
     <div class="card-container">
-      <div class="card"><a href="members/rohan.html">Rohan</a></div>
-      <div class="card"><a href="members/aaryan.html">Aaryan</a></div>
-      <div class="card"><a href="members/sivasankar.html">Sivasankar</a></div>
-      <div class="card"><a href="members/siddharth.html">Siddharth</a></div>
-      <div class="card"><a href="members/rithin.html">Rithin</a></div>
+      <a href="members/rohan.html" class="card">
+        <h3>Rohan</h3>
+        <p>Click to view assignments</p>
+      </a>
+      <a href="members/aaryan.html" class="card">
+        <h3>Aaryan</h3>
+        <p>Click to view assignments</p>
+      </a>
+      <a href="members/sivasankar.html" class="card">
+        <h3>Sivasankar</h3>
+        <p>Click to view assignments</p>
+      </a>
+      <a href="members/siddharth.html" class="card">
+        <h3>Siddharth</h3>
+        <p>Click to view assignments</p>
+      </a>
+      <a href="members/rithin.html" class="card">
+        <h3>Rithin</h3>
+        <p>Click to view assignments</p>
+      </a>
     </div>
   </section>
+
+  <div class="floating-emojis">💬✨🌐</div>
+  <div class="chat-bubble">Try our new P2P Chat App!</div>
+
+  <script>
+    document.querySelector('.dark-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
